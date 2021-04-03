@@ -20,51 +20,34 @@ import io.reactivex.annotations.NonNull;
 public class LaunchAdapter extends BaseAdapter<Launch> {
 
     private static class LaunchViewHolder extends android.eservices.spacex.presentation.adapter.MyViewHolder {
-        private ImageView boardImageView;
-        private TextView whitePlayerTextView;
-        private TextView blackPlayerTextView;
-        private TextView resultTextView;
+        private ImageView smallLogoImageView;
+        private TextView nameTextView;
         private TextView dateTextView;
-        private TextView timecontrolTextView;
-        private TextView terminationTextView;
-
-        private ImageView smallLogo;
-        private TextView name;
-        private TextView date;
-
         private View v;
         private Launch launch;
 
         public LaunchViewHolder(View v) {
             super(v);
             this.v = v;
-            boardImageView = v.findViewById(R.id.board);
-            whitePlayerTextView = v.findViewById(R.id.white_player);
-            blackPlayerTextView = v.findViewById(R.id.black_player);
-            resultTextView = v.findViewById(R.id.result);
-            dateTextView = v.findViewById(R.id.date);
-            timecontrolTextView = v.findViewById(R.id.timecontrol);
-            terminationTextView = v.findViewById(R.id.termination);
+            smallLogoImageView = v.findViewById(R.id.launch_logo);
+            nameTextView = v.findViewById(R.id.launch_title);
+            dateTextView = v.findViewById(R.id.launch_date);
         }
 
         @Override
         protected void bind(Object obj) {
             Launch launch = (Launch) obj;
 
-            whitePlayerTextView.setText(String.format("%s (%s)", launch.getWhite(), launch.getWhiteelo()));
-            blackPlayerTextView.setText(String.format("%s (%s)", launch.getBlack(), launch.getBlackelo()));
-            resultTextView.setText(launch.getResult());
-            dateTextView.setText((new SimpleDateFormat("MM-dd-yyyy hh:ss", Locale.ENGLISH)).format(launch.getDate()));
-            timecontrolTextView.setText(launch.getTimecontrol());
-            terminationTextView.setText(launch.getTermination());
+            nameTextView.setText(launch.getName());
+            dateTextView.setText((new SimpleDateFormat("MM-dd-yyyy hh:ss", Locale.ENGLISH)).format(launch.getDate_utc()));
 
             CircularProgressDrawable loader = new CircularProgressDrawable(v.getContext());
             loader.start();
 
             Glide.with(v)
-                    .load("http://www.fen-to-image.com/image/"+launch.getFen())
+                    .load(launch.getSmallLogo())
                     .placeholder(loader)
-                    .into(boardImageView);
+                    .into(smallLogoImageView);
         }
     }
 

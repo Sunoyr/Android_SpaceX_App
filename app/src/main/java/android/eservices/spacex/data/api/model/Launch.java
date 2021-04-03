@@ -9,7 +9,6 @@ public class Launch {
     private Rocket rocket;
     private String details;
     private String name;
-    private String webcast;//todo
     private Links links;
 
     public int getId() {
@@ -29,7 +28,7 @@ public class Launch {
     }
 
     public String getWebcast() {
-        return webcast;
+        return links.getWebcast();
     }
 
     public Date getDate_utc() { return date_utc; }
@@ -37,5 +36,4 @@ public class Launch {
     public String getSmallLogo() { return links.getPatch().getSmall(); }
 
     public List<String> getOriginalPictures() { return links.getFlickr().getOriginal(); }
-
 }

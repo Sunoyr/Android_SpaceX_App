@@ -5,6 +5,7 @@ import java.util.List;
 public class Links {
     private Patch patch;
     private Flickr flickr;
+    private String webcast;
 
     public class Flickr {
         private List<String> original;
@@ -29,4 +30,6 @@ public class Links {
     public Flickr getFlickr() {
         return flickr;
     }
+
+    public String getWebcast() { return webcast; }
 }
