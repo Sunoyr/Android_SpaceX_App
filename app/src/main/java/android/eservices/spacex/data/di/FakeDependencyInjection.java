@@ -1,7 +1,7 @@
 package android.eservices.spacex.data.di;
 
 import android.content.Context;
-import android.eservices.spacex.results.viewmodel.ViewModelFactory;
+import android.eservices.spacex.presentation.viewmodel.ViewModelFactory;
 import android.eservices.spacex.data.api.service.LaunchService;
 import android.eservices.spacex.data.api.service.RocketService;
 import android.eservices.spacex.data.repository.launch.ILaunchRepository;

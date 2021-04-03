@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:networkSecurityConfig="@xml/network_security_config">
-        <activity android:name=".results.MatchActivity"/>
-        <activity android:name=".results.BaseActivity" />
-        <activity android:name=".results.ParticipantActivity" />
+        <activity android:name=".presentation.MatchActivity"/>
+        <activity android:name=".presentation.BaseActivity" />
+        <activity android:name=".presentation.ParticipantActivity" />
         <activity
-            android:name=".results.MainActivity"
+            android:name=".presentation.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

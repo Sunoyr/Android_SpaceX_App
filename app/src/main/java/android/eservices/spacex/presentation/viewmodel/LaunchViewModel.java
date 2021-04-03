@@ -1,7 +1,7 @@
-package android.eservices.spacex.results.viewmodel;
+package android.eservices.spacex.presentation.viewmodel;
 
-import android.eservices.spacex.data.api.model.Rocket;
-import android.eservices.spacex.data.repository.rocket.IRocketRepository;
+import android.eservices.spacex.data.api.model.Launch;
+import android.eservices.spacex.data.repository.launch.ILaunchRepository;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -14,34 +14,34 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
-public class RocketSelectViewModel extends ViewModel {
+public class LaunchViewModel extends ViewModel {
     private final CompositeDisposable compositeDisposable;
-    private IRocketRepository rocketRepository;
+    private ILaunchRepository launchRepository;
 
-    public RocketSelectViewModel(IRocketRepository rocketRepository) {
-        this.rocketRepository = rocketRepository;
+    public LaunchViewModel(ILaunchRepository launchRepository) {
+        this.launchRepository = launchRepository;
         this.compositeDisposable = new CompositeDisposable();
     }
 
-    private MutableLiveData<List<Rocket>> rockets;
+    private MutableLiveData<List<Launch>> launchs;
     private MutableLiveData<Boolean> isDataLoading = new MutableLiveData<>();
 
     public MutableLiveData<Boolean> getIsDataLoading() {
         return isDataLoading;
     }
 
-    public MutableLiveData<List<Rocket>> getRockets() {
+    public MutableLiveData<List<Launch>> getLaunchs() {
         isDataLoading.postValue(true);
-        if(this.rockets == null){
-            rockets = new MutableLiveData<>();
+        if(this.launchs == null){
+            launchs = new MutableLiveData<>();
             compositeDisposable.clear();
-            compositeDisposable.add(rocketRepository.getAllRockets()
+            compositeDisposable.add(launchRepository.getAllLaunchs()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<List<Rocket>>() {
+                .subscribeWith(new DisposableSingleObserver<List<Launch>>() {
                     @Override
-                    public void onSuccess(@NonNull List<Rocket> rocketList) {
-                        rockets.setValue(rocketList);
+                    public void onSuccess(@NonNull List<Launch> launchList) {
+                        launchs.setValue(launchList);
                         isDataLoading.setValue(false);
                     }
 
@@ -52,6 +52,6 @@ public class RocketSelectViewModel extends ViewModel {
                     }
                 }));
         }
-        return rockets;
+        return launchs;
     }
 }

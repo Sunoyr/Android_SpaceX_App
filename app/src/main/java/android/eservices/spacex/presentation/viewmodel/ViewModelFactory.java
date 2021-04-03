@@ -1,8 +1,5 @@
-package android.eservices.spacex.results.viewmodel;
+package android.eservices.spacex.presentation.viewmodel;
 
-import android.eservices.pogchamps.results.viewmodel.MatchViewModel;
-import android.eservices.pogchamps.results.viewmodel.ParticipantViewModel;
-import android.eservices.pogchamps.results.viewmodel.TournamentSelectViewModel;
 import android.eservices.spacex.data.repository.launch.ILaunchRepository;
 import android.eservices.spacex.data.repository.rocket.IRocketRepository;
 
@@ -24,11 +21,11 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     @NonNull
     @Override
     public <T extends ViewModel> T create(Class<T> modelClass) {
-        if (modelClass.isAssignableFrom(LaunchSelectViewModel.class)) {
-            return (T) new LaunchSelectViewModel(launchRepository);
+        if (modelClass.isAssignableFrom(LaunchViewModel.class)) {
+            return (T) new LaunchViewModel(launchRepository);
         }
-        if (modelClass.isAssignableFrom(RocketSelectViewModel.class)) {
-            return (T) new RocketSelectViewModel(rocketRepository);
+        if (modelClass.isAssignableFrom(RocketViewModel.class)) {
+            return (T) new RocketViewModel(rocketRepository);
         }
         throw new IllegalArgumentException("Unknown ViewModel class");
     }

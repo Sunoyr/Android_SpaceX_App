@@ -22,6 +22,6 @@ public interface LaunchService {
      * @param launchId
      * @return la liste des launchs
      */
-    @GET("duel/of/{participantId}")
+    @GET("launches/{launchId}")
     Single<Launch> getOneLaunch(@Path("launchId") int launchId);
 }

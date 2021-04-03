@@ -1,4 +1,4 @@
-package android.eservices.spacex.results.adapter;
+package android.eservices.spacex.presentation.adapter;
 
 import android.view.View;
 
