@@ -14,7 +14,7 @@ public interface LaunchService {
      * @return la liste des launchs
      */
     @GET("launches")
-    Single<List<Launch>> getAllLaunchs();
+    Single<List<Launch>> getAllLaunches();
 
 
     /**

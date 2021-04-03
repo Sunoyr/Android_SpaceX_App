@@ -1,6 +1,7 @@
 package android.eservices.spacex.data.api.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Launch {
     private int id;
@@ -8,16 +9,11 @@ public class Launch {
     private Rocket rocket;
     private String details;
     private String name;
-    private String webcast;
-    //Check pour les photos
-
+    private String webcast;//todo
+    private Links links;
 
     public int getId() {
         return id;
-    }
-
-    public Date getDate() {
-        return date_utc;
     }
 
     public Rocket getRocket() {
@@ -35,4 +31,11 @@ public class Launch {
     public String getWebcast() {
         return webcast;
     }
+
+    public Date getDate_utc() { return date_utc; }
+
+    public String getSmallLogo() { return links.getPatch().getSmall(); }
+
+    public List<String> getOriginalPictures() { return links.getFlickr().getOriginal(); }
+
 }

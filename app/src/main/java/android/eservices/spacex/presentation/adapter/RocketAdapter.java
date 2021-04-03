@@ -1,9 +1,7 @@
 package android.eservices.spacex.presentation.adapter;
 
-import android.eservices.pogchamps.R;
-import android.eservices.pogchamps.data.api.model.Game;
-import android.eservices.pogchamps.results.adapter.BaseAdapter;
-import android.eservices.pogchamps.results.adapter.MyViewHolder;
+import android.eservices.spacex.R;
+import android.eservices.spacex.data.api.model.Rocket;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +17,9 @@ import java.util.Locale;
 
 import io.reactivex.annotations.NonNull;
 
-public class RocketAdapter extends BaseAdapter<Game> {
+public class RocketAdapter extends BaseAdapter<Rocket> {
 
-    private static class GameViewHolder extends android.eservices.pogchamps.results.adapter.MyViewHolder {
+    private static class RocketViewHolder extends MyViewHolder {
         private ImageView boardImageView;
         private TextView whitePlayerTextView;
         private TextView blackPlayerTextView;
@@ -30,9 +28,9 @@ public class RocketAdapter extends BaseAdapter<Game> {
         private TextView timecontrolTextView;
         private TextView terminationTextView;
         private View v;
-        private Game game;
+        private Rocket rocket;
 
-        public GameViewHolder(View v) {
+        public RocketViewHolder(View v) {
             super(v);
             this.v = v;
             boardImageView = v.findViewById(R.id.board);
@@ -46,20 +44,20 @@ public class RocketAdapter extends BaseAdapter<Game> {
 
         @Override
         protected void bind(Object obj) {
-            Game game = (Game) obj;
+            Rocket rocket = (Rocket) obj;
 
-            whitePlayerTextView.setText(String.format("%s (%s)", game.getWhite(), game.getWhiteelo()));
-            blackPlayerTextView.setText(String.format("%s (%s)", game.getBlack(), game.getBlackelo()));
-            resultTextView.setText(game.getResult());
-            dateTextView.setText((new SimpleDateFormat("MM-dd-yyyy hh:ss", Locale.ENGLISH)).format(game.getDate()));
-            timecontrolTextView.setText(game.getTimecontrol());
-            terminationTextView.setText(game.getTermination());
+            whitePlayerTextView.setText(String.format("%s (%s)", rocket.getWhite(), rocket.getWhiteelo()));
+            blackPlayerTextView.setText(String.format("%s (%s)", rocket.getBlack(), rocket.getBlackelo()));
+            resultTextView.setText(rocket.getResult());
+            dateTextView.setText((new SimpleDateFormat("MM-dd-yyyy hh:ss", Locale.ENGLISH)).format(rocket.getDate()));
+            timecontrolTextView.setText(rocket.getTimecontrol());
+            terminationTextView.setText(rocket.getTermination());
 
             CircularProgressDrawable loader = new CircularProgressDrawable(v.getContext());
             loader.start();
 
             Glide.with(v)
-                    .load("http://www.fen-to-image.com/image/"+game.getFen())
+                    .load("http://www.fen-to-image.com/image/"+rocket.getFen())
                     .placeholder(loader)
                     .into(boardImageView);
         }
@@ -68,10 +66,7 @@ public class RocketAdapter extends BaseAdapter<Game> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if(viewType == TYPE_HEADER)
-           return super.onCreateViewHolder(parent, viewType);
-
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_game, parent, false);
-        return new GameViewHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rocket, parent, false);
+        return new RocketViewHolder(v);
     }
 }

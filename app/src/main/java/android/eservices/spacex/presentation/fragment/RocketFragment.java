@@ -33,7 +33,7 @@ public class RocketFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        rootView = inflater.inflate(R.layout.fragment_groupstage, container, false);
+        rootView = inflater.inflate(R.layout.fragment_rocket, container, false);
         return rootView;
     }
 
@@ -46,7 +46,7 @@ public class RocketFragment extends Fragment {
 
     private void setupRecyclerView() {
         RecyclerView recyclerView = rootView.findViewById(R.id.rockets);
-        RocketAdapter adapter = new RocketAdapter();
+        adapter = new RocketAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setNestedScrollingEnabled(false);

@@ -23,25 +23,25 @@ public class LaunchViewModel extends ViewModel {
         this.compositeDisposable = new CompositeDisposable();
     }
 
-    private MutableLiveData<List<Launch>> launchs;
+    private MutableLiveData<List<Launch>> launches;
     private MutableLiveData<Boolean> isDataLoading = new MutableLiveData<>();
 
     public MutableLiveData<Boolean> getIsDataLoading() {
         return isDataLoading;
     }
 
-    public MutableLiveData<List<Launch>> getLaunchs() {
+    public MutableLiveData<List<Launch>> getLaunches() {
         isDataLoading.postValue(true);
-        if(this.launchs == null){
-            launchs = new MutableLiveData<>();
+        if(this.launches == null){
+            launches = new MutableLiveData<>();
             compositeDisposable.clear();
-            compositeDisposable.add(launchRepository.getAllLaunchs()
+            compositeDisposable.add(launchRepository.getAllLaunches()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSingleObserver<List<Launch>>() {
                     @Override
                     public void onSuccess(@NonNull List<Launch> launchList) {
-                        launchs.setValue(launchList);
+                        launches.setValue(launchList);
                         isDataLoading.setValue(false);
                     }
 
@@ -52,6 +52,6 @@ public class LaunchViewModel extends ViewModel {
                     }
                 }));
         }
-        return launchs;
+        return launches;
     }
 }

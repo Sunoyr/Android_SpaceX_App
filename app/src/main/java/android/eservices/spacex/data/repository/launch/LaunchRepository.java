@@ -2,7 +2,6 @@ package android.eservices.spacex.data.repository.launch;
 
 import android.eservices.spacex.data.api.model.Launch;
 import android.eservices.spacex.data.api.service.LaunchService;
-import android.eservices.spacex.data.repository.launch.ILaunchRepository;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class LaunchRepository implements ILaunchRepository {
 
     @Override
     public Single<List<Launch>> getAllLaunchs() {
-        return launchService.getAllLaunchs();
+        return launchService.getAllLaunches();
     }
 
     @Override

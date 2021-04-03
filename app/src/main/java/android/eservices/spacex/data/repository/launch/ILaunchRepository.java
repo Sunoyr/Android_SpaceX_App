@@ -7,7 +7,7 @@ import java.util.List;
 import io.reactivex.Single;
 
 public interface ILaunchRepository {
-    Single<List<Launch>> getAllLaunchs();
+    Single<List<Launch>> getAllLaunches();
 
     Single<Launch> getOneLaunch(int launchId);
 

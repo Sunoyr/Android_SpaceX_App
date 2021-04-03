@@ -1,9 +1,6 @@
 package android.eservices.spacex.presentation.adapter;
 
 import android.eservices.spacex.R;
-import android.eservices.spacex.data.api.model.Game;
-import android.eservices.spacex.presentation.adapter.BaseAdapter;
-import android.eservices.spacex.presentation.adapter.MyViewHolder;
 import android.eservices.spacex.data.api.model.Launch;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +19,7 @@ import io.reactivex.annotations.NonNull;
 
 public class LaunchAdapter extends BaseAdapter<Launch> {
 
-    private static class GameViewHolder extends android.eservices.spacex.presentation.adapter.MyViewHolder {
+    private static class LaunchViewHolder extends android.eservices.spacex.presentation.adapter.MyViewHolder {
         private ImageView boardImageView;
         private TextView whitePlayerTextView;
         private TextView blackPlayerTextView;
@@ -30,10 +27,15 @@ public class LaunchAdapter extends BaseAdapter<Launch> {
         private TextView dateTextView;
         private TextView timecontrolTextView;
         private TextView terminationTextView;
-        private View v;
-        private Game game;
 
-        public GameViewHolder(View v) {
+        private ImageView smallLogo;
+        private TextView name;
+        private TextView date;
+
+        private View v;
+        private Launch launch;
+
+        public LaunchViewHolder(View v) {
             super(v);
             this.v = v;
             boardImageView = v.findViewById(R.id.board);
@@ -47,20 +49,20 @@ public class LaunchAdapter extends BaseAdapter<Launch> {
 
         @Override
         protected void bind(Object obj) {
-            Game game = (Game) obj;
+            Launch launch = (Launch) obj;
 
-            whitePlayerTextView.setText(String.format("%s (%s)", game.getWhite(), game.getWhiteelo()));
-            blackPlayerTextView.setText(String.format("%s (%s)", game.getBlack(), game.getBlackelo()));
-            resultTextView.setText(game.getResult());
-            dateTextView.setText((new SimpleDateFormat("MM-dd-yyyy hh:ss", Locale.ENGLISH)).format(game.getDate()));
-            timecontrolTextView.setText(game.getTimecontrol());
-            terminationTextView.setText(game.getTermination());
+            whitePlayerTextView.setText(String.format("%s (%s)", launch.getWhite(), launch.getWhiteelo()));
+            blackPlayerTextView.setText(String.format("%s (%s)", launch.getBlack(), launch.getBlackelo()));
+            resultTextView.setText(launch.getResult());
+            dateTextView.setText((new SimpleDateFormat("MM-dd-yyyy hh:ss", Locale.ENGLISH)).format(launch.getDate()));
+            timecontrolTextView.setText(launch.getTimecontrol());
+            terminationTextView.setText(launch.getTermination());
 
             CircularProgressDrawable loader = new CircularProgressDrawable(v.getContext());
             loader.start();
 
             Glide.with(v)
-                    .load("http://www.fen-to-image.com/image/"+game.getFen())
+                    .load("http://www.fen-to-image.com/image/"+launch.getFen())
                     .placeholder(loader)
                     .into(boardImageView);
         }
@@ -69,10 +71,7 @@ public class LaunchAdapter extends BaseAdapter<Launch> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if(viewType == TYPE_HEADER)
-           return super.onCreateViewHolder(parent, viewType);
-
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_game, parent, false);
-        return new GameViewHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_launch, parent, false);
+        return new LaunchViewHolder(v);
     }
 }

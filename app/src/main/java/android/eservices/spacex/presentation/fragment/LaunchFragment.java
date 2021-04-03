@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class LaunchFragment extends Fragment {
 
-    public static final String TAB_NAME = "Launchs";
+    public static final String TAB_NAME = "Launches";
     private View rootView;
     private LaunchViewModel launchViewModel;
     private LaunchAdapter adapter;
@@ -33,7 +33,7 @@ public class LaunchFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        rootView = inflater.inflate(R.layout.fragment_groupstage, container, false);
+        rootView = inflater.inflate(R.layout.fragment_launch, container, false);
         return rootView;
     }
 
@@ -45,8 +45,8 @@ public class LaunchFragment extends Fragment {
     }
 
     private void setupRecyclerView() {
-        RecyclerView recyclerView = rootView.findViewById(R.id.launchs);
-        LaunchAdapter adapter = new LaunchAdapter();
+        RecyclerView recyclerView = rootView.findViewById(R.id.launches);
+        adapter = new LaunchAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setNestedScrollingEnabled(false);
@@ -54,12 +54,12 @@ public class LaunchFragment extends Fragment {
 
     private void registerViewModels() {
         launchViewModel = new ViewModelProvider(requireActivity(), FakeDependencyInjection.getViewModelFactory()).get(LaunchViewModel.class);
-        getLaunchs();
+        getLaunches();
     }
 
-    private void getLaunchs() {
-        launchViewModel.getLaunchs().observe(getViewLifecycleOwner(), launchs -> {
-            adapter.bindViewModels(launchs);
+    private void getLaunches() {
+        launchViewModel.getLaunches().observe(getViewLifecycleOwner(), launches -> {
+            adapter.bindViewModels(launches);
         });
     }
 }
