@@ -1,4 +1,4 @@
-package android.eservices.spacex.data.api.model;
+package android.eservices.spacex.data.api.model.launch;
 
 import java.util.List;
 

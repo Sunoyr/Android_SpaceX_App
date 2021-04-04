@@ -11,8 +11,7 @@
 
     <!-- Style to replace actionbar overflow icon. set item 'android:actionOverflowButtonStyle' in AppTheme -->
     <style name="MyActionButtonOverflow" parent="android:style/Widget.Holo.Light.ActionButton.Overflow">
-        <item name="android:src">@drawable/ic_trophy</item>
-        <item name="android:contentDescription">@string/pogchamps_select</item>
+        <item name="android:src">@drawable/ic_list</item>
     </style>
 
     <!-- This configures the styles for the title within the Toolbar  -->

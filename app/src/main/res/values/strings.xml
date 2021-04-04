@@ -3,4 +3,6 @@
     <string name="launch_title">Launch Title</string>
     <string name="launch_date">Launch Date</string>
     <string name="small_logo">small logo</string>
+
+    <string name="rocket_title">Rocket Title</string>
 </resources>

@@ -1,18 +1,21 @@
-package android.eservices.spacex.data.api.model;
+package android.eservices.spacex.data.api.model.launch;
 
+import android.eservices.spacex.data.api.model.rocket.Rocket;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Launch {
-    private int id;
+public class Launch implements Serializable {
+    private Cores cores;
     private Date date_utc;
     private Rocket rocket;
     private String details;
     private String name;
     private Links links;
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return cores.getId();
     }
 
     public Rocket getRocket() {

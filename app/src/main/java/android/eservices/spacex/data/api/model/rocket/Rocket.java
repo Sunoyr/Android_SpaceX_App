@@ -1,39 +1,37 @@
-package android.eservices.spacex.data.api.model;
+package android.eservices.spacex.data.api.model.rocket;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Rocket implements Serializable {
-    private int id;
-    private int height;
-    private int diameter;
-    private int mass;
-    private int engines;
+    private String id;
+    private Height height;
+    private Diameter diameter;
+    private Mass mass;
+    private Engines engines;
     private String name;
     private String description;
     private int Cost_per_launch;
     private int success_rate;
     private String first_flight;
-    //Check pour les photos
-    //Check pour le payload
+    private List<String> flickr_images;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     public int getHeight() {
-        return height;
+        return height.getMeters();
     }
 
-    public int getDiameter() {
-        return diameter;
-    }
+    public double getDiameter() { return diameter.getMeters(); }
 
     public int getMass() {
-        return mass;
+        return mass.getKg();
     }
 
     public int getEngines() {
-        return engines;
+        return engines.getNumber();
     }
 
     public String getName() {
@@ -53,4 +51,6 @@ public class Rocket implements Serializable {
     }
 
     public String getFirst_flight() { return first_flight; }
+
+    public List<String> getFlickr_images() { return flickr_images; }
 }
