@@ -1,7 +1,7 @@
 package android.eservices.spacex.data.api.model.rocket;
 
 public class Height {
-    private int meters;
+    private double meters;
 
-    public int getMeters() { return meters; }
+    public double getMeters() { return meters; }
 }

@@ -42,13 +42,14 @@ public class LaunchViewModel extends ViewModel {
                 .subscribeWith(new DisposableSingleObserver<List<Launch>>() {
                     @Override
                     public void onSuccess(@NonNull List<Launch> launchList) {
+                        Log.d("myTag","la requete est correct");
                         launches.setValue(launchList);
                         isDataLoading.setValue(false);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.d("myTag","on passe dans le if du launchViewModel");
+                        Log.d("myTag","la requete est null");
                         System.out.println(e.toString());
                         isDataLoading.setValue(false);
                     }

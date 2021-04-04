@@ -20,17 +20,17 @@ public class Rocket implements Serializable {
         return id;
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return height.getMeters();
     }
 
     public double getDiameter() { return diameter.getMeters(); }
 
-    public int getMass() {
+    public double getMass() {
         return mass.getKg();
     }
 
-    public int getEngines() {
+    public double getEngines() {
         return engines.getNumber();
     }
 

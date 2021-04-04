@@ -4,6 +4,8 @@ import android.eservices.spacex.R;
 import android.eservices.spacex.presentation.fragment.LaunchFragment;
 import android.eservices.spacex.presentation.fragment.RocketFragment;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -19,12 +21,23 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private List<Fragment> fragments = new ArrayList<>();
+    private ImageButton imageBtn;
+    private boolean flag = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupViewPagerAndTabs();
+
+        imageBtn = (ImageButton) findViewById(R.id.ic_display_mode);
+        imageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                swapDisplay(v);
+            }
+        });
     }
 
     private void setupViewPagerAndTabs() {
@@ -55,5 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 return 2;
             }
         });
+    }
+
+    public void swapDisplay(View v) {
+        if (flag) {
+            imageBtn.setImageResource(R.drawable.ic_list);
+            flag = false;
+        } else {
+            imageBtn.setImageResource(R.drawable.ic_grid);
+            flag = true;
+        }
     }
 }

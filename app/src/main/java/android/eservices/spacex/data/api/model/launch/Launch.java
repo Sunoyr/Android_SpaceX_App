@@ -7,18 +7,18 @@ import java.util.Date;
 import java.util.List;
 
 public class Launch implements Serializable {
-    private Cores cores;
+    private Cores[] cores;
     private Date date_utc;
-    private Rocket rocket;
+    private String rocket;
     private String details;
     private String name;
     private Links links;
 
     public String getId() {
-        return cores.getId();
+        return cores[0].getId();
     }
 
-    public Rocket getRocket() {
+    public String getRocket() {
         return rocket;
     }
 

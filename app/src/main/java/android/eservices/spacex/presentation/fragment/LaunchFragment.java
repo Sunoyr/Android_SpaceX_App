@@ -60,7 +60,7 @@ public class LaunchFragment extends Fragment {
 
     private void getLaunches() {
         launchViewModel.getLaunches().observe(getViewLifecycleOwner(), launches -> {
-            Log.d("spacexinfo",launches.size()+"");
+            Log.d("myTag",launches.size()+"");
             adapter.bindViewModels(launches);
         });
     }

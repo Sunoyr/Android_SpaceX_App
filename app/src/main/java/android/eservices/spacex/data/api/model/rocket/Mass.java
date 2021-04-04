@@ -1,7 +1,7 @@
 package android.eservices.spacex.data.api.model.rocket;
 
 public class Mass {
-    private int kg;
+    private double kg;
 
-    public int getKg() { return kg; }
+    public double getKg() { return kg; }
 }

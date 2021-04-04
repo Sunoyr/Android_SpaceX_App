@@ -36,7 +36,7 @@ public class LaunchAdapter extends BaseAdapter<Launch> {
 
         @Override
         protected void bind(Object obj) {
-            Launch launch = (Launch) obj;
+            launch = (Launch) obj;
 
             nameTextView.setText(launch.getName());
             dateTextView.setText((new SimpleDateFormat("MM-dd-yyyy hh:ss", Locale.ENGLISH)).format(launch.getDate_utc()));
