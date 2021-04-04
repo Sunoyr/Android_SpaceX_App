@@ -1,6 +1,7 @@
 package android.eservices.spacex.data.api.service;
 
-import android.eservices.spacex.data.api.model.Launch;
+
+import android.eservices.spacex.data.api.model.launch.Launch;
 
 import java.util.List;
 

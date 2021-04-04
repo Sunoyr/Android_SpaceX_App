@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public CharSequence getPageTitle(int position) {
                 if (position == 0) {
-                    return RocketFragment.TAB_NAME;
+                    return LaunchFragment.TAB_NAME;
                 }
-                return LaunchFragment.TAB_NAME;
+                return RocketFragment.TAB_NAME;
             }
 
             @Override

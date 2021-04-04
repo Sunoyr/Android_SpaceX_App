@@ -1,7 +1,7 @@
 package android.eservices.spacex.presentation.adapter;
 
 import android.eservices.spacex.R;
-import android.eservices.spacex.data.api.model.Launch;
+import android.eservices.spacex.data.api.model.launch.Launch;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

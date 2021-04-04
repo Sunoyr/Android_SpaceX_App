@@ -5,6 +5,7 @@ import android.eservices.spacex.data.di.FakeDependencyInjection;
 import android.eservices.spacex.presentation.adapter.LaunchAdapter;
 import android.eservices.spacex.presentation.viewmodel.LaunchViewModel;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,7 @@ public class LaunchFragment extends Fragment {
 
     private void getLaunches() {
         launchViewModel.getLaunches().observe(getViewLifecycleOwner(), launches -> {
+            Log.d("spacexinfo",launches.size()+"");
             adapter.bindViewModels(launches);
         });
     }

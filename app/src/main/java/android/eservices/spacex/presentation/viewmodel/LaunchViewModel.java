@@ -1,7 +1,8 @@
 package android.eservices.spacex.presentation.viewmodel;
 
-import android.eservices.spacex.data.api.model.Launch;
+import android.eservices.spacex.data.api.model.launch.Launch;
 import android.eservices.spacex.data.repository.launch.ILaunchRepository;
+import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -47,6 +48,7 @@ public class LaunchViewModel extends ViewModel {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
+                        Log.d("myTag","on passe dans le if du launchViewModel");
                         System.out.println(e.toString());
                         isDataLoading.setValue(false);
                     }

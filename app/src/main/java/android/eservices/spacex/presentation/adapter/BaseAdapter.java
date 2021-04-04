@@ -1,5 +1,7 @@
 package android.eservices.spacex.presentation.adapter;
 
+import android.util.Log;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<MyViewHolder> 
         this.list.clear();
         if(list.isEmpty()){
             //remplir un champ pour expliquer qu'il n'y a rien à afficher
+            Log.d("myTag", "The list is empty");
         }else{
             this.list.addAll(list);
         }
@@ -26,7 +29,11 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        if (this.list == null) {
+            this.list = new ArrayList<>();
+        } else {
             holder.bind(list.get(position));
+        }
     }
 
     @Override

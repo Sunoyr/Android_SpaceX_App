@@ -1,6 +1,6 @@
 package android.eservices.spacex.presentation.viewmodel;
 
-import android.eservices.spacex.data.api.model.Rocket;
+import android.eservices.spacex.data.api.model.rocket.Rocket;
 import android.eservices.spacex.data.repository.rocket.IRocketRepository;
 
 import androidx.lifecycle.MutableLiveData;

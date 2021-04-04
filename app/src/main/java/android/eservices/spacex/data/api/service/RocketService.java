@@ -1,6 +1,7 @@
 package android.eservices.spacex.data.api.service;
 
-import android.eservices.spacex.data.api.model.Rocket;
+
+import android.eservices.spacex.data.api.model.rocket.Rocket;
 
 import java.util.List;
 
