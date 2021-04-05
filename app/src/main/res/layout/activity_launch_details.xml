@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.MainActivity"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+        <ScrollView
+            android:id="@+id/launch_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/launch_picture_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                app:srcCompat="@drawable/spacex_logo"
+                />
+
+            <ImageView
+                android:id="@+id/launch_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_grid"
+                app:layout_constraintTop_toBottomOf="@+id/launch_picture_imageView"
+                android:layout_marginTop="10dp"
+                app:layout_constraintRight_toLeftOf="@+id/launch_name_textView"
+                />
+
+            <TextView
+                android:id="@+id/launch_name_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/launch_picture_imageView"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                tools:text="@string/launch_title"/>
+
+            <TextView
+                android:id="@+id/launch_date_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/launch_name_textView"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/launch_rocket_textView"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                tools:text="@string/launch_date"/>
+
+            <TextView
+                android:id="@+id/launch_rocket_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/launch_name_textView"
+                app:layout_constraintRight_toLeftOf="@+id/launch_date_textView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                tools:text="Falcon heavy"/>
+
+            <TextView
+                android:id="@+id/launch_details_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/launch_rocket_textView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                tools:text="@string/details_launch_exemple"/>
+
+            <TextView
+                android:id="@+id/launch_webcast_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/launch_details_textView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                tools:text="link to youtube video of the launch"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

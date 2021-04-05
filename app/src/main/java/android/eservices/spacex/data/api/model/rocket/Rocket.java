@@ -12,7 +12,7 @@ public class Rocket implements Serializable {
     private String name;
     private String description;
     private int Cost_per_launch;
-    private int success_rate;
+    private int success_rate_pct;
     private String first_flight;
     private List<String> flickr_images;
 
@@ -34,6 +34,8 @@ public class Rocket implements Serializable {
         return engines.getNumber();
     }
 
+    public String getEnginesType() { return engines.getType(); }
+
     public String getName() {
         return name;
     }
@@ -47,7 +49,7 @@ public class Rocket implements Serializable {
     }
 
     public int getSuccess_rate() {
-        return success_rate;
+        return success_rate_pct;
     }
 
     public String getFirst_flight() { return first_flight; }

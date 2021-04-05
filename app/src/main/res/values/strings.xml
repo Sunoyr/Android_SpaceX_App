@@ -3,6 +3,16 @@
     <string name="launch_title">Launch Title</string>
     <string name="launch_date">Launch Date</string>
     <string name="small_logo">small logo</string>
+    <string name="details_launch_exemple">SpaceX\'s 20th and final Crew Resupply Mission under the original NASA CRS contract, this mission brings essential supplies to the International Space Station using SpaceX\'s reusable Dragon spacecraft. It is the last scheduled flight of a Dragon 1 capsule. (CRS-21 and up under the new Commercial Resupply Services 2 contract will use Dragon 2.) The external payload for this mission is the Bartolomeo ISS external payload hosting platform. Falcon 9 and Dragon will launch from SLC-40, Cape Canaveral Air Force Station and the booster will land at LZ-1. The mission will be complete with return and recovery of the Dragon capsule and down cargo.</string>
 
     <string name="rocket_title">Rocket Title</string>
+    <string name="rocket_description">With the ability to lift into orbit over 54 metric tons (119,000 lb)--a mass equivalent to a 737 jetliner loaded with passengers, crew, luggage and fuel--Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy, at one-third the cost.</string>
+    <string name="rocket_diameter">Rocket Diameter : </string>
+    <string name="rocket_height">Rocket Height : </string>
+    <string name="rocket_mass">Rocket Mass : </string>
+    <string name="rocket_engines_type">Engine type : </string>
+    <string name="rocket_engines">Rocket engines number : </string>
+    <string name="rocket_cost_per_launch">Rocket cost per launch : </string>
+    <string name="rocket_success_rate">Rocket success rate : </string>
+    <string name="rocket_first_flight">Rocket first flight : </string>
 </resources>
