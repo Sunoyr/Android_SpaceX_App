@@ -24,6 +24,7 @@ public class RocketViewModel extends ViewModel {
     }
 
     private MutableLiveData<List<Rocket>> rockets;
+    private MutableLiveData<Rocket> rocket;
     private MutableLiveData<Boolean> isDataLoading = new MutableLiveData<>();
 
     public MutableLiveData<Boolean> getIsDataLoading() {
@@ -53,5 +54,29 @@ public class RocketViewModel extends ViewModel {
                 }));
         }
         return rockets;
+    }
+
+    public MutableLiveData<Rocket> getOneRocket(String rocketId) {
+        isDataLoading.postValue(true);
+        if(this.rocket == null){
+            rocket = new MutableLiveData();
+            compositeDisposable.clear();
+            compositeDisposable.add(rocketRepository.getOneRocket(rocketId)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeWith(new DisposableSingleObserver<Rocket>() {
+                        @Override
+                        public void onSuccess(@NonNull Rocket rocket) {
+                            isDataLoading.setValue(false);
+                        }
+
+                        @Override
+                        public void onError(@NonNull Throwable e) {
+                            System.out.println(e.toString());
+                            isDataLoading.setValue(false);
+                        }
+                    }));
+        }
+        return rocket;
     }
 }

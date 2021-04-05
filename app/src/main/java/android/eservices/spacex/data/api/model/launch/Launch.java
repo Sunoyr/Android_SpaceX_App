@@ -38,5 +38,11 @@ public class Launch implements Serializable {
 
     public String getSmallLogo() { return links.getPatch().getSmall(); }
 
-    public List<String> getOriginalPictures() { return links.getFlickr().getOriginal(); }
+    public String getLargeLogo() { return links.getPatch().getLarge(); }
+
+    public String getOriginalPicture() {
+        if (links.getFlickr().getOriginal().size() > 0) {
+            return links.getFlickr().getOriginal().get(0);
+        } return getLargeLogo();
+    }
 }

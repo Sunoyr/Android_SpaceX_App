@@ -2,9 +2,9 @@ package android.eservices.spacex.presentation.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.eservices.spacex.LaunchDetailsActivity;
 import android.eservices.spacex.R;
 import android.eservices.spacex.data.api.model.launch.Launch;
+import android.eservices.spacex.presentation.LaunchDetailsActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +33,7 @@ public class LaunchAdapter extends BaseAdapter<Launch> {
         public LaunchViewHolder(View v) {
             super(v);
             this.v = v;
+            v.setOnClickListener(this);
             smallLogoImageView = v.findViewById(R.id.launch_logo);
             nameTextView = v.findViewById(R.id.launch_title);
             dateTextView = v.findViewById(R.id.launch_date);
@@ -40,12 +41,10 @@ public class LaunchAdapter extends BaseAdapter<Launch> {
 
         @Override
         public void onClick(View view) {
-            Log.d("MyTag", "onClick: debut");
             Context context = view.getContext();
             Intent intent = new Intent(context, LaunchDetailsActivity.class);
             intent.putExtra("launch", launch);
             context.startActivity(intent);
-            Log.d("MyTag", "onClick: fin");
         }
 
         @Override

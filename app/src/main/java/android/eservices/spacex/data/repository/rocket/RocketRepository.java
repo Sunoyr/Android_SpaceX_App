@@ -21,7 +21,5 @@ public class RocketRepository implements IRocketRepository {
     }
 
     @Override
-    public Single<Rocket> getOneRocket(int rocketId) {
-        return rocketService.getOneRocket(rocketId);
-    }
+    public Single<Rocket> getOneRocket(String rocketId) { return rocketService.getOneRocket(rocketId); }
 }

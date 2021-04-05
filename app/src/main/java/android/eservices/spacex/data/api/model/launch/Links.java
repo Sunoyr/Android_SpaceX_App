@@ -1,26 +1,28 @@
 package android.eservices.spacex.data.api.model.launch;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Links {
+public class Links implements Serializable {
     private Patch patch;
     private Flickr flickr;
     private String webcast;
 
-    public class Flickr {
+    public class Flickr implements Serializable {
         private List<String> original;
 
-        public List<String> getOriginal() {
-            return original;
-        }
+        public List<String> getOriginal() { return original; }
     }
 
-    public class Patch {
+    public class Patch implements Serializable {
         private String small;
+        private String large;
 
         public String getSmall() {
             return small;
         }
+
+        public String getLarge() { return large; }
     }
 
     public Patch getPatch() {

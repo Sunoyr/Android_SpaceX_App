@@ -24,5 +24,5 @@ public interface RocketService {
      * @return une rocket
      */
     @GET("rockets/{rocketId}")
-    Single<Rocket> getOneRocket(@Path("rocketId") int rocketId);
+    Single<Rocket> getOneRocket(@Path("rocketId") String rocketId);
 }

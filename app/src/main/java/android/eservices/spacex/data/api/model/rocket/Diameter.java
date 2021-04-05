@@ -1,6 +1,8 @@
 package android.eservices.spacex.data.api.model.rocket;
 
-public class Diameter {
+import java.io.Serializable;
+
+public class Diameter implements Serializable {
     private double meters;
 
     public double getMeters() { return meters; }

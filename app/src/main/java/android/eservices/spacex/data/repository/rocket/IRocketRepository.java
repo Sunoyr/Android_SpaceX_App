@@ -10,6 +10,6 @@ import io.reactivex.Single;
 public interface IRocketRepository {
     Single<List<Rocket>> getAllRockets();
 
-    Single<Rocket> getOneRocket(int rocketId);
+    Single<Rocket> getOneRocket(String rocketId);
 
 }

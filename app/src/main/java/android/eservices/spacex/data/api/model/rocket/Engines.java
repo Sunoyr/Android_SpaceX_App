@@ -1,6 +1,8 @@
 package android.eservices.spacex.data.api.model.rocket;
 
-public class Engines {
+import java.io.Serializable;
+
+public class Engines implements Serializable {
     private int number;
     private String type;
 

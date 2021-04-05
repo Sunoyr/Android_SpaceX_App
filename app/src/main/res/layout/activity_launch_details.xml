@@ -25,18 +25,10 @@
                 android:id="@+id/launch_picture_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:scaleType="center"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:srcCompat="@drawable/spacex_logo"
-                />
-
-            <ImageView
-                android:id="@+id/launch_logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_grid"
-                app:layout_constraintTop_toBottomOf="@+id/launch_picture_imageView"
-                android:layout_marginTop="10dp"
-                app:layout_constraintRight_toLeftOf="@+id/launch_name_textView"
+                app:layout_constraintBottom_toTopOf="@+id/launch_name_textView"
+                app:srcCompat="@drawable/ic_dark_square"
                 />
 
             <TextView
@@ -74,10 +66,13 @@
 
             <TextView
                 android:id="@+id/launch_details_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/launch_rocket_textView"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:textSize="18sp"
                 tools:text="@string/details_launch_exemple"/>

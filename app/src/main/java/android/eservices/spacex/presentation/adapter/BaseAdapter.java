@@ -31,9 +31,8 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         if (this.list == null) {
             this.list = new ArrayList<>();
-        } else {
-            holder.bind(list.get(position));
         }
+        holder.bind(list.get(position));
     }
 
     @Override

@@ -1,7 +1,10 @@
 package android.eservices.spacex.presentation.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.eservices.spacex.R;
 import android.eservices.spacex.data.api.model.rocket.Rocket;
+import android.eservices.spacex.presentation.RocketDetailsActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +15,11 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 import io.reactivex.annotations.NonNull;
 
 public class RocketAdapter extends BaseAdapter<Rocket> {
 
-    private static class RocketViewHolder extends MyViewHolder {
+    private static class RocketViewHolder extends MyViewHolder implements View.OnClickListener {
         private ImageView iconImageView;
         private TextView titleTextView;
         private View v;
@@ -28,8 +28,17 @@ public class RocketAdapter extends BaseAdapter<Rocket> {
         public RocketViewHolder(View v) {
             super(v);
             this.v = v;
+            v.setOnClickListener(this);
             iconImageView = v.findViewById(R.id.icon_rocket_imageview);
             titleTextView = v.findViewById(R.id.title_rocket_textview);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Context context = view.getContext();
+            Intent intent = new Intent(context, RocketDetailsActivity.class);
+            intent.putExtra("rocket", rocket);
+            context.startActivity(intent);
         }
 
         @Override
@@ -42,7 +51,7 @@ public class RocketAdapter extends BaseAdapter<Rocket> {
             loader.start();
 
             Glide.with(v)
-                    .load(rocket.getFlickr_images().get(1))
+                    .load(rocket.getFlickr_image())
                     .placeholder(loader)
                     .into(iconImageView);
         }
