@@ -43,7 +43,7 @@ public class RocketAdapter extends BaseAdapter<Rocket> {
 
         @Override
         protected void bind(Object obj) {
-            Rocket rocket = (Rocket) obj;
+            rocket = (Rocket) obj;
 
             titleTextView.setText(rocket.getName());
 

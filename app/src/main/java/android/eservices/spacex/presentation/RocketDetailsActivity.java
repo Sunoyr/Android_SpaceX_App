@@ -37,7 +37,7 @@ public class RocketDetailsActivity extends AppCompatActivity {
         View v = findViewById(R.id.rocket_details);
 
         TextView name = v.findViewById(R.id.rocket_name_textview);
-        name.setText(R.string.rocket_title+rocket.getName());
+        name.setText(rocket.getName());
 
         ImageView imageView = v.findViewById(R.id.rocket_image_imageView);
 
@@ -50,31 +50,31 @@ public class RocketDetailsActivity extends AppCompatActivity {
                 .into(imageView);
 
         TextView description = v.findViewById(R.id.rocket_description_textView);
-        description.setText(R.string.rocket_description+rocket.getDescription());
+        description.setText(getResources().getString(R.string.rocket_description)+rocket.getDescription());
 
         TextView height = v.findViewById(R.id.rocket_height_textView);
-        height.setText(R.string.rocket_height+rocket.getHeight()+"");
+        height.setText(getResources().getString(R.string.rocket_height)+" "+rocket.getHeight());
 
         TextView diameter = v.findViewById(R.id.rocket_diameter_textView);
-        diameter.setText(R.string.rocket_diameter+rocket.getDiameter()+"");
+        diameter.setText(getResources().getString(R.string.rocket_diameter)+" "+rocket.getDiameter());
 
         TextView mass = v.findViewById(R.id.rocket_mass_textView);
-        mass.setText(R.string.rocket_mass+rocket.getMass()+"");
+        mass.setText(getResources().getString(R.string.rocket_mass)+" "+rocket.getMass());
 
         TextView engines = v.findViewById(R.id.rocket_engines_textView);
-        engines.setText(R.string.rocket_engines+rocket.getEngines()+"");
+        engines.setText(getResources().getString(R.string.rocket_engines)+" "+rocket.getEngines());
 
         TextView engine_type = v.findViewById(R.id.rocket_engines_type_textView);
-        engine_type.setText(R.string.rocket_engines_type+rocket.getEnginesType());
+        engine_type.setText(getResources().getString(R.string.rocket_engines_type)+" "+rocket.getEnginesType());
 
         TextView cost_per_launch = v.findViewById(R.id.rocket_cost_per_launch_textView);
-        cost_per_launch.setText(R.string.rocket_cost_per_launch+rocket.getCost_per_launch()+"");
+        cost_per_launch.setText(getResources().getString(R.string.rocket_cost_per_launch)+" "+rocket.getCost_per_launch());
 
         TextView sucess_rate = v.findViewById(R.id.rocket_success_rate_textView);
-        sucess_rate.setText(R.string.rocket_success_rate+rocket.getSuccess_rate()+"");
+        sucess_rate.setText(getResources().getString(R.string.rocket_success_rate)+" "+rocket.getSuccess_rate());
 
         TextView first_flight = v.findViewById(R.id.rocket_first_flight_textView);
-        first_flight.setText(R.string.rocket_first_flight+(new SimpleDateFormat("MM-dd-yyyy hh:ss", Locale.ENGLISH)).format(rocket.getFirst_flight()));
+        first_flight.setText(getResources().getString(R.string.rocket_first_flight)+" "+rocket.getFirst_flight());
     }
 
     private void updateToolBar(){

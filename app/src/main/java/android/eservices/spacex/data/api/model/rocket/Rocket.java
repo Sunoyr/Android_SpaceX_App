@@ -11,7 +11,7 @@ public class Rocket implements Serializable {
     private Engines engines;
     private String name;
     private String description;
-    private double Cost_per_launch;
+    private int cost_per_launch;
     private double success_rate_pct;
     private String first_flight;
     private List<String> flickr_images;
@@ -44,8 +44,8 @@ public class Rocket implements Serializable {
         return description;
     }
 
-    public double getCost_per_launch() {
-        return Cost_per_launch;
+    public int getCost_per_launch() {
+        return cost_per_launch;
     }
 
     public double getSuccess_rate() {
