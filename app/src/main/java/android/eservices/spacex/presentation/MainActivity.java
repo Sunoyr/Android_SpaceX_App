@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setupViewPagerAndTabs();
 
-        imageBtn = (ImageButton) findViewById(R.id.ic_display_mode);
+        imageBtn = findViewById(R.id.ic_display_mode);
         imageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void swapDisplay(View v) {
         if (isLinear) {
-            imageBtn.setImageResource(R.drawable.ic_list);
+            imageBtn.setImageResource(R.drawable.ic_grid);
             isLinear = false;
         } else {
-            imageBtn.setImageResource(R.drawable.ic_grid);
+            imageBtn.setImageResource(R.drawable.ic_list);
             isLinear = true;
         }
         updateFragments();

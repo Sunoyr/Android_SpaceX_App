@@ -1,10 +1,7 @@
 package android.eservices.spacex.data.api.model.launch;
 
-import android.eservices.spacex.data.api.model.rocket.Rocket;
-
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 public class Launch implements Serializable {
     private Cores[] cores;
@@ -30,8 +27,8 @@ public class Launch implements Serializable {
         return name;
     }
 
-    public String getWebcast() {
-        return links.getWebcast();
+    public String getYoutubeId() {
+        return links.getYoutube_id();
     }
 
     public Date getDate_utc() { return date_utc; }

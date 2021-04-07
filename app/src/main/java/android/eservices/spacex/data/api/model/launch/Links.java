@@ -6,7 +6,7 @@ import java.util.List;
 public class Links implements Serializable {
     private Patch patch;
     private Flickr flickr;
-    private String webcast;
+    private String youtube_id;
 
     public class Flickr implements Serializable {
         private List<String> original;
@@ -33,5 +33,5 @@ public class Links implements Serializable {
         return flickr;
     }
 
-    public String getWebcast() { return webcast; }
+    public String getYoutube_id() { return youtube_id; }
 }

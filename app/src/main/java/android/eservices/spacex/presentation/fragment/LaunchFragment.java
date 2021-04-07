@@ -2,22 +2,16 @@ package android.eservices.spacex.presentation.fragment;
 
 import android.eservices.spacex.R;
 import android.eservices.spacex.data.di.FakeDependencyInjection;
-import android.eservices.spacex.presentation.MainActivity;
 import android.eservices.spacex.presentation.adapter.LaunchAdapter;
 import android.eservices.spacex.presentation.viewmodel.LaunchViewModel;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,7 +22,7 @@ public class LaunchFragment extends BaseFragment {
     public static final String TAB_NAME = "Launches";
     private View rootView;
     private LaunchViewModel launchViewModel;
-    private LaunchAdapter adapter;
+    protected LaunchAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView recyclerView;
 

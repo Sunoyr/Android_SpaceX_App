@@ -1,11 +1,14 @@
 package android.eservices.spacex.presentation;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.eservices.spacex.R;
 import android.eservices.spacex.data.api.model.launch.Launch;
 import android.eservices.spacex.data.api.model.rocket.Rocket;
 import android.eservices.spacex.data.di.FakeDependencyInjection;
 import android.eservices.spacex.data.repository.rocket.RocketRepository;
 import android.eservices.spacex.presentation.viewmodel.RocketViewModel;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -67,8 +70,13 @@ public class LaunchDetailsActivity extends AppCompatActivity {
         TextView details = v.findViewById(R.id.launch_details_textView);
         details.setText(launch.getDetails());
 
-        TextView webcast = v.findViewById(R.id.launch_webcast_textView);
-        webcast.setText(launch.getWebcast());
+        ImageButton webcast = v.findViewById(R.id.launch_webcast_textView);
+        webcast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                watchVideo(v);
+            }
+        });
     }
 
     private void retrieveRocket() {
@@ -95,5 +103,16 @@ public class LaunchDetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void watchVideo(View v) {
+        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + launch.getYoutubeId()));
+        Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.youtube.com/watch?v=" + launch.getYoutubeId()));
+        try {
+            startActivity(appIntent);
+        } catch (ActivityNotFoundException ex) {
+
+        }
     }
 }
