@@ -49,7 +49,7 @@ public class RocketFragment extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.rockets);
         adapter = new RocketAdapter();
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setNestedScrollingEnabled(false);
     }
 

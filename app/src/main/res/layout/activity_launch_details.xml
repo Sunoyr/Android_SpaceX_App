@@ -39,7 +39,13 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/launch_picture_imageView"
                 android:layout_marginTop="10dp"
-                android:textSize="20sp"
+                android:textSize="25sp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:shadowColor="@color/colorAccent"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"
                 tools:text="@string/launch_title"/>
 
             <TextView
@@ -50,7 +56,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/launch_rocket_textView"
                 android:layout_marginTop="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 tools:text="@string/launch_date"/>
 
             <TextView
@@ -61,7 +67,7 @@
                 app:layout_constraintRight_toLeftOf="@+id/launch_date_textView"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 tools:text="Falcon heavy"/>
 
             <TextView
@@ -74,8 +80,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:textSize="18sp"
-                tools:text="@string/details_launch_exemple"/>
+                android:textSize="20sp"
+                android:textAlignment="center"
+                tools:text="@string/details_launch_exemple"
+                android:gravity="center_horizontal" />
 
             <TextView
                 android:id="@+id/launch_webcast_textView"
@@ -85,7 +93,9 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
                 tools:text="link to youtube video of the launch"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

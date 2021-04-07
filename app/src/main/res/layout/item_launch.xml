@@ -31,23 +31,33 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:textSize="35sp"
+            android:textSize="22sp"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/launch_date"
             app:layout_constraintLeft_toRightOf="@id/launch_logo"
+            app:layout_constraintRight_toRightOf="parent"
             tools:text="@string/launch_title"
-            android:drawablePadding="2dip" />
+            android:drawablePadding="2dp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:shadowColor="@color/colorAccent"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"/>
 
         <TextView
             android:id="@+id/launch_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             app:layout_constraintLeft_toRightOf="@id/launch_logo"
             app:layout_constraintTop_toBottomOf="@id/launch_title"
-            tools:text="@string/launch_date"
-            android:drawablePadding="2dip" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:drawablePadding="2dp"
+            tools:text="@string/launch_date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

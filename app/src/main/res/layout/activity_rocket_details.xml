@@ -39,11 +39,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/rocket_image_imageView"
                 android:layout_marginTop="10dp"
                 android:textSize="30sp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:shadowColor="@color/colorAccent"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"
                 tools:text="@string/rocket_title"/>
 
             <TextView
                 android:id="@+id/rocket_description_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/rocket_name_textview"
                 app:layout_constraintRight_toRightOf="parent"
@@ -51,8 +57,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textSize="18sp"
-                tools:text="@string/rocket_description"/>
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                tools:text="@string/rocket_description" />
 
             <TextView
                 android:id="@+id/rocket_height_textView"
@@ -62,7 +70,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:text="@string/rocket_height"/>
 
             <TextView
@@ -73,7 +82,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:text="@string/rocket_diameter"/>
 
             <TextView
@@ -84,7 +94,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:text="@string/rocket_mass"/>
 
             <TextView
@@ -95,7 +106,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:text="@string/rocket_engines"/>
 
             <TextView
@@ -106,7 +118,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:text="@string/rocket_engines_type"/>
 
             <TextView
@@ -117,7 +130,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:text="@string/rocket_cost_per_launch"/>
 
             <TextView
@@ -128,7 +142,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:text="@string/rocket_success_rate"/>
 
             <TextView
@@ -139,7 +154,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 tools:text="@string/rocket_first_flight"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

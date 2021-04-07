@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
@@ -45,8 +46,6 @@
             app:layout_constraintRight_toRightOf="@id/icon_rocket_imageview"
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="Falcon Heavy" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
