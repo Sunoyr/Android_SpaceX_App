@@ -10,7 +10,6 @@ import android.eservices.spacex.data.repository.rocket.RocketRepository;
 import android.eservices.spacex.presentation.viewmodel.RocketViewModel;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -19,10 +18,8 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStore;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
@@ -70,7 +67,7 @@ public class LaunchDetailsActivity extends AppCompatActivity {
         TextView details = v.findViewById(R.id.launch_details_textView);
         details.setText(launch.getDetails());
 
-        ImageButton webcast = v.findViewById(R.id.launch_webcast_textView);
+        ImageButton webcast = v.findViewById(R.id.launch_webcast_imageView);
         webcast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -36,6 +36,8 @@ public class LaunchFragment extends BaseFragment {
     public void updateLayout(Boolean isLinear) {
         if (isLinear) {
             layoutManager = new LinearLayoutManager(getContext());
+            ((LinearLayoutManager) layoutManager).setReverseLayout(true);
+            ((LinearLayoutManager) layoutManager).setStackFromEnd(true);
         } else {
             layoutManager = new GridLayoutManager(getContext(), 2);
         }
