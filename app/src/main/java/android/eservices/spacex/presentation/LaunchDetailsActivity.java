@@ -7,6 +7,7 @@ import android.eservices.spacex.data.di.FakeDependencyInjection;
 import android.eservices.spacex.data.repository.rocket.RocketRepository;
 import android.eservices.spacex.presentation.viewmodel.RocketViewModel;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStore;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
@@ -32,6 +34,7 @@ public class LaunchDetailsActivity extends AppCompatActivity {
     protected Toolbar toolbar;
     protected RocketViewModel rocketViewModel;
     private RocketRepository RocketRepository;
+    protected View v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +43,11 @@ public class LaunchDetailsActivity extends AppCompatActivity {
         launch = (Launch) getIntent().getSerializableExtra(LAUNCH);
         updateToolBar();
         setupView();
+        retrieveRocket();
     }
 
     private void setupView() {
-        View v = findViewById(R.id.launch_details);
+        v = findViewById(R.id.launch_details);
         ImageView img = v.findViewById(R.id.launch_picture_imageView);
 
         CircularProgressDrawable loader = new CircularProgressDrawable(v.getContext());
@@ -57,12 +61,6 @@ public class LaunchDetailsActivity extends AppCompatActivity {
         TextView title = v.findViewById(R.id.launch_name_textView);
         title.setText(launch.getName());
 
-        TextView rocket_name = v.findViewById(R.id.launch_rocket_textView);
-        /*rocketViewModel = new ViewModelProvider( ViewModelStore::new, FakeDependencyInjection.getViewModelFactory()).get(RocketViewModel.class);
-        Rocket rocket = new Rocket();
-        rocket = rocketViewModel.getOneRocket(launch.getRocket()).getValue();*/
-        rocket_name.setText(launch.getRocket());
-
         TextView launchDate = v.findViewById(R.id.launch_date_textView);
         launchDate.setText((new SimpleDateFormat("dd-MM-yyyy hh:ss", Locale.ENGLISH)).format(launch.getDate_utc())+"h");
 
@@ -71,6 +69,17 @@ public class LaunchDetailsActivity extends AppCompatActivity {
 
         TextView webcast = v.findViewById(R.id.launch_webcast_textView);
         webcast.setText(launch.getWebcast());
+    }
+
+    private void retrieveRocket() {
+        rocketViewModel = new ViewModelProvider(this, FakeDependencyInjection.getViewModelFactory()).get(RocketViewModel.class);
+        rocketViewModel.getOneRocket(launch.getRocket()).observe(this, new Observer<Rocket>() {
+            @Override
+            public void onChanged(final Rocket rocket) {
+                TextView rocket_name = v.findViewById(R.id.launch_rocket_textView);
+                rocket_name.setText(rocket.getName());
+            }
+        });
     }
 
     private void updateToolBar(){

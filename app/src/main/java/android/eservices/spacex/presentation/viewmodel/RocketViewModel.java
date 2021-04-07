@@ -2,6 +2,7 @@ package android.eservices.spacex.presentation.viewmodel;
 
 import android.eservices.spacex.data.api.model.rocket.Rocket;
 import android.eservices.spacex.data.repository.rocket.IRocketRepository;
+import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -66,7 +67,8 @@ public class RocketViewModel extends ViewModel {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeWith(new DisposableSingleObserver<Rocket>() {
                         @Override
-                        public void onSuccess(@NonNull Rocket rocket) {
+                        public void onSuccess(@NonNull Rocket r) {
+                            rocket.setValue(r);
                             isDataLoading.setValue(false);
                         }
 

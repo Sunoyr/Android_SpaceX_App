@@ -8,26 +8,40 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RocketFragment extends Fragment {
+public class RocketFragment extends BaseFragment {
 
     public static final String TAB_NAME = "Rockets";
     private View rootView;
     private RocketViewModel rocketViewModel;
     private RocketAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView recyclerView;
 
     private RocketFragment() {}
 
     public static RocketFragment newInstance() {
         return new RocketFragment();
+    }
+
+    @Override
+    public void updateLayout(Boolean isLinear) {
+        if (isLinear) {
+            layoutManager = new LinearLayoutManager(getContext());
+        } else {
+            layoutManager = new GridLayoutManager(getContext(), 2);
+        }
+        recyclerView.setLayoutManager(layoutManager);
     }
 
     @Nullable
@@ -46,11 +60,10 @@ public class RocketFragment extends Fragment {
     }
 
     private void setupRecyclerView() {
-        RecyclerView recyclerView = rootView.findViewById(R.id.rockets);
+        recyclerView = rootView.findViewById(R.id.rockets);
         adapter = new RocketAdapter();
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setNestedScrollingEnabled(false);
+        updateLayout(true);
     }
 
     private void registerViewModels() {

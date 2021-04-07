@@ -1,6 +1,7 @@
 package android.eservices.spacex.presentation;
 
 import android.eservices.spacex.R;
+import android.eservices.spacex.presentation.fragment.BaseFragment;
 import android.eservices.spacex.presentation.fragment.LaunchFragment;
 import android.eservices.spacex.presentation.fragment.RocketFragment;
 import android.os.Bundle;
@@ -20,10 +21,10 @@ import io.reactivex.annotations.NonNull;
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
-    private List<Fragment> fragments = new ArrayList<>();
+    private List<BaseFragment> fragments = new ArrayList<>();
     private ImageButton imageBtn;
-    private boolean flag = true;
-
+    private boolean isLinear = true;
+    public static final String LAYOUT = "layout";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +43,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPagerAndTabs() {
         viewPager = findViewById(R.id.tab_viewpager);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(LAYOUT, isLinear);
         fragments.add(LaunchFragment.newInstance());
         fragments.add(RocketFragment.newInstance());
-        
+
+        for(BaseFragment fragment:fragments) {
+            fragment.setArguments(bundle);
+        }
+
         viewPager.setAdapter(new FragmentPagerAdapter(
             getSupportFragmentManager(),
             FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
@@ -71,12 +78,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void swapDisplay(View v) {
-        if (flag) {
+        if (isLinear) {
             imageBtn.setImageResource(R.drawable.ic_list);
-            flag = false;
+            isLinear = false;
         } else {
             imageBtn.setImageResource(R.drawable.ic_grid);
-            flag = true;
+            isLinear = true;
+        }
+        updateFragments();
+    }
+
+    private void updateFragments() {
+        for(BaseFragment fragment:fragments) {
+            if(fragment.getView() != null){
+                fragment.updateLayout(isLinear);
+            }else {
+                assert fragment.getArguments() != null;
+                fragment.getArguments().putBoolean(LAYOUT, isLinear);
+            }
         }
     }
 }

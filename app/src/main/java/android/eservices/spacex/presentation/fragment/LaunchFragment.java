@@ -11,29 +11,41 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toolbar;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class LaunchFragment extends Fragment {
+public class LaunchFragment extends BaseFragment {
 
     public static final String TAB_NAME = "Launches";
     private View rootView;
     private LaunchViewModel launchViewModel;
     private LaunchAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView recyclerView;
 
     private LaunchFragment() { }
 
     public static LaunchFragment newInstance() {
         return new LaunchFragment();
+    }
+
+    @Override
+    public void updateLayout(Boolean isLinear) {
+        if (isLinear) {
+            layoutManager = new LinearLayoutManager(getContext());
+        } else {
+            layoutManager = new GridLayoutManager(getContext(), 2);
+        }
+        recyclerView.setLayoutManager(layoutManager);
     }
 
     @Nullable
@@ -52,27 +64,11 @@ public class LaunchFragment extends Fragment {
     }
 
     private void setupRecyclerView() {
-        RecyclerView recyclerView = rootView.findViewById(R.id.launches);
+        recyclerView = rootView.findViewById(R.id.launches);
         recyclerView.setHasFixedSize(true);
         adapter = new LaunchAdapter();
         recyclerView.setAdapter(adapter);
-        layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-
-        /*ImageButton imageButton = (ImageButton) rootView.findViewById(R.id.ic_display_mode);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (layoutManager instanceof GridLayoutManager) {
-                    layoutManager = new LinearLayoutManager(getContext());
-                } else {
-                    layoutManager = new GridLayoutManager(getContext(), 2);
-                }
-                recyclerView.setLayoutManager(layoutManager);
-            }
-        });*/
-
-        recyclerView.setNestedScrollingEnabled(false);
+        updateLayout(true);
     }
 
     private void registerViewModels() {
