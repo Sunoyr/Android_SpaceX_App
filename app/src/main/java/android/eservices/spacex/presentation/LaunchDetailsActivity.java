@@ -68,12 +68,18 @@ public class LaunchDetailsActivity extends AppCompatActivity {
         details.setText(launch.getDetails());
 
         ImageButton webcast = v.findViewById(R.id.launch_webcast_imageView);
-        webcast.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                watchVideo(v);
-            }
-        });
+        if (launch.getYoutubeId()==null) {
+            webcast.setVisibility(View.INVISIBLE);
+        } else {
+            TextView no_video = v.findViewById(R.id.no_video);
+            no_video.setVisibility(View.INVISIBLE);
+            webcast.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    watchVideo(v);
+                }
+            });
+        }
     }
 
     private void retrieveRocket() {
@@ -108,8 +114,6 @@ public class LaunchDetailsActivity extends AppCompatActivity {
                 Uri.parse("http://www.youtube.com/watch?v=" + launch.getYoutubeId()));
         try {
             startActivity(appIntent);
-        } catch (ActivityNotFoundException ex) {
-
-        }
+        } catch (ActivityNotFoundException ex) { }
     }
 }
