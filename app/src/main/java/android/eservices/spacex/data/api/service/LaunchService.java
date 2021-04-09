@@ -21,7 +21,7 @@ public interface LaunchService {
     /**
      * Récupérer un launch .
      * @param launchId
-     * @return la liste des launchs
+     * @return un launch
      */
     @GET("launches/{launchId}")
     Single<Launch> getOneLaunch(@Path("launchId") int launchId);
